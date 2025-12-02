@@ -126,5 +126,5 @@ Exact Historical Path: Simulate contributions on real SPY/BND timeline.
 Inflation & Fees: Adjust returns for real purchasing power and costs.
 
 
-📜 License
+✅ License
 MIT License — free to use and modify.
