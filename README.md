@@ -65,14 +65,6 @@ Run:
 Shellpython monte_carlo_dynamic.pyShow more lines
 
 
-
-✅ SSL Bypass (Corporate Networks)
-If your environment uses SSL inspection and blocks HTTPS:
-
-The script includes a temporary SSL bypass so data can be fetched.
-Remove the bypass and set VERIFY_SSL = True once your corporate root CA is installed in Python’s trust store.
-
-
 ✅ Outputs
 
 comparison_summary_spy_bnd_alpha_norebalance.csv
@@ -117,14 +109,3 @@ Summarize & Compare
 Compute distribution stats and pairwise comparisons.
 Visualize
 Plot overlapping histograms for all strategies.
-
-
-✅ Extensions
-
-Sensitivity Analysis: Vary tilt levels and block sizes.
-Exact Historical Path: Simulate contributions on real SPY/BND timeline.
-Inflation & Fees: Adjust returns for real purchasing power and costs.
-
-
-✅ License
-MIT License — free to use and modify.
