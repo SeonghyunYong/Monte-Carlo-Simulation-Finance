@@ -1,58 +1,67 @@
-Monte Carlo Portfolio Simulation (Dynamic Allocation, No Rebalancing)
+Summary
+This script performs a Monte Carlo simulation of portfolio growth using historical monthly returns for an equity ETF (e.g., VT or SPY) and a bond ETF (e.g., BNDW or BND). It uses a joint block bootstrap to preserve cross-asset correlation and models contributions, annual raises, bonuses, and optional rebalancing. Multiple strategies (static and dynamic allocations) are compared over a long horizon (default: 30 years).
+
+What It Does
+
+Downloads historical monthly adjusted prices from https://www.alphavantage.co/support/#api-key.
+Converts prices to monthly returns.
+Generates a contribution schedule (base monthly, annual raises, bonuses).
+Runs Monte Carlo simulations with block bootstrap to model realistic return sequences.
+Supports:
+
+Static allocations (e.g., 60/40 equity/bond).
+Dynamic strategies (adjust weights based on drawdowns/recoveries).
+Optional rebalancing (monthly, quarterly, annual).
+
+
+Outputs:
+
+Summary CSV of terminal wealth statistics.
+Pairwise comparison CSV of strategy outperformance probabilities.
+Histogram plot of terminal wealth distributions.
 
 
 
-✅ Overview
-This project simulates long-term portfolio growth using block-bootstrap Monte Carlo with dynamic allocation rules applied only to new contributions (no rebalancing of existing holdings). It compares four strategies over a 30-year horizon with monthly contributions of $1,000:
 
-Strategy A) All-Equity:
-100% SPY
+How to Run
 
-Strategy B) Static 40/60:
-40% SPY / 60% BND
+Install dependencies:
+Shellpip install requests numpy pandas matplotlibShow more lines
 
-Strategy C) Dynamic Conservative:
-Baseline: 60% SPY / 40% BND
-When market >20% below previous bull peak → 80/20
-When market >100% above previous bear trough → 40/60
+Get an Alpha Vantage API key and update CONFIG["data"]["api_key"].
+Edit CONFIG at the top of the script:
 
-Strategy D) Dynamic Growth:
-Baseline: 80% SPY / 20% BND
-When >10% below previous bull peak → 100/0
-When >200% above previous bear trough → 60/40
+Symbols (equity_symbol, bond_symbol).
+Simulation parameters (months, n_paths, block_size).
+Contribution details and strategies.
 
 
+Run the script:
+Shellpython3 monte_carlo.pyShow more lines
 
-✅ Why Block Bootstrap?
-Unlike random sampling, block bootstrap preserves:
+Outputs will be saved as:
 
-Serial correlation (momentum/mean reversion patterns)
-Cross-asset co-movement (equity/bond correlation)
-This makes simulations more realistic than naive Monte Carlo.
-
-
-✅ How to Run
-
-Get a free Alpha Vantage API key:
-https://www.alphavantage.co/support/#api-key
-Paste your key into the script:
-API_KEY = "YOUR_ALPHA_VANTAGE_KEY"
+comparison_summary.csv
+pairwise_comparison.csv
+terminal_wealth_hist.png
 
 
 
-✅ How It Works (Step-by-Step)
 
-Download Data
-Fetch monthly adjusted closes for SPY and BND (dividends reinvested).
+How to Read the Outputs
 
-Compute Returns
-Convert prices to monthly returns and align calendars.
+comparison_summary.csv:
 
-Block Bootstrap
-Sample contiguous blocks to preserve realistic patterns.
+Columns: mean, median, std, p5, p25, p75, p95.
+These represent terminal wealth distribution metrics for each strategy.
 
-Summarize & Compare
-Compute distribution stats and pairwise comparisons.
 
-Visualize
-Plot overlapping histograms for all strategies.
+pairwise_comparison.csv:
+
+prob_B_outperforms_A: Probability that strategy B beats A.
+avg_B_minus_A: Average difference in terminal wealth.
+
+
+terminal_wealth_hist.png:
+
+Overlapping histograms of terminal wealth for all strategies.
