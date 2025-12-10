@@ -6,21 +6,21 @@ Summary
 
 What It Does
 
-  Downloads historical monthly adjusted prices from https://www.alphavantage.co/support/#api-key.
+  - Downloads historical monthly adjusted prices from https://www.alphavantage.co/support/#api-key.
   
-  Converts prices to monthly returns.
+  - Converts prices to monthly returns.
   
-  Generates a contribution schedule (base monthly, annual raises, bonuses).
+  - Generates a contribution schedule (base monthly, annual raises, bonuses).
   
-  Runs Monte Carlo simulations with block bootstrap to model realistic return sequences.
+  - Runs Monte Carlo simulations with block bootstrap to model realistic return sequences.
   
-  Supports:
+  - Supports:
   
     Static allocations (e.g., 60/40 equity/bond).
     Dynamic strategies (adjust weights based on drawdowns/recoveries).
     Optional rebalancing (monthly, quarterly, annual).
     
-  Outputs:
+  - Outputs:
   
     Summary CSV of terminal wealth statistics.
     Pairwise comparison CSV of strategy outperformance probabilities.
