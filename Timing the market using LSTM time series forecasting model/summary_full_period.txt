@@ -1,0 +1,13 @@
+days_traded: 5463
+period_start: 1996-10-15 00:00:00
+period_end: 2018-06-28 00:00:00
+final_wealth_bh: 115533.91818780858
+final_wealth_ls: 32137.25750646982
+contrib_multiple_bh: 2.1148438255136113
+contrib_multiple_ls: 0.5882712338727772
+sharpe_bh_approx: 0.42267102425628184
+sharpe_ls_approx: -0.41412583306405076
+max_drawdown_bh: -0.513651333143571
+max_drawdown_ls: -0.40356450728832544
+xirr_bh: 0.06412003001568187
+xirr_ls: 5.0
