@@ -1,0 +1,80 @@
+data:
+  api_key: XTKLMIAOG2UP3QDF
+  equity_symbol: VT
+  bond_symbol: BNDW
+  proxies: {}
+  verify_ssl: false
+simulation:
+  months: 60
+  n_paths: 100000
+  block_size: 60
+  seed: 42
+contributions:
+  base_monthly: 1000.0
+  annual_raise:
+    pct: 0.0
+    apply_in_month: 1
+  bonus_months: []
+rebalancing:
+  enabled: false
+  frequency: annual
+  threshold_band: 0.0
+  method: total
+strategies:
+- name: All-Equity 100/0
+  baseline:
+  - 1.0
+  - 0.0
+  dynamic: null
+- name: Static 40/60
+  baseline:
+  - 0.4
+  - 0.6
+  dynamic: null
+- name: Dynamic A (60/40→80/20↓20%,→40/60↑100%)
+  baseline:
+  - 0.6
+  - 0.4
+  dynamic:
+    dd_trigger: 0.2
+    up_trigger_gain: 1.0
+    down_weights:
+    - 0.8
+    - 0.2
+    up_weights:
+    - 0.4
+    - 0.6
+- name: Dynamic B (80/20→100/0↓10%,→60/40↑200%)
+  baseline:
+  - 0.8
+  - 0.2
+  dynamic:
+    dd_trigger: 0.1
+    up_trigger_gain: 2.0
+    down_weights:
+    - 1.0
+    - 0.0
+    up_weights:
+    - 0.6
+    - 0.4
+grid_search:
+  enabled: false
+  base_spec:
+    name_prefix: Grid Dyn
+    baseline:
+    - 0.6
+    - 0.4
+    down_weights:
+    - 0.8
+    - 0.2
+    up_weights:
+    - 0.4
+    - 0.6
+  dd_trigger_range:
+  - 0.1
+  - 0.3
+  - 0.05
+  up_trigger_gain_range:
+  - 0.5
+  - 3.0
+  - 0.5

@@ -1,0 +1,35 @@
+timestamp_utc: '2025-12-04T04:22:03Z'
+python_version: 3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03)
+  [MSC v.1929 64 bit (AMD64)]
+platform: Windows-11-10.0.22631-SP0
+git_commit: null
+script: spy_bnd_montecarlo_configurable.py
+data:
+  equity_symbol: VT
+  bond_symbol: BNDW
+  verify_ssl: false
+  proxies_present: false
+simulation:
+  months: 60
+  n_paths: 100000
+  block_size: 60
+  seed: 42
+rebalancing:
+  enabled: false
+  frequency: annual
+  threshold_band: 0.0
+  method: total
+strategies_count: 4
+grid_search_enabled: false
+contributions:
+  base_monthly: 1000.0
+  annual_raise:
+    pct: 0.0
+    apply_in_month: 1
+  bonus_months: []
+outputs:
+  summary_csv: comparison_summary_spy_bnd_config.csv
+  pairs_csv: pairwise_comparison_spy_bnd_config.csv
+  histogram_png: terminal_wealth_hist_spy_bnd_config.png
+  resolved_config_yaml: config_resolved.yaml
+config_hash_sha256: 1de4161c0d6ce01255daa26013238350f6b440ad1b8ea4d4d585df4ae6bb1f9c
